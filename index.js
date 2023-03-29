@@ -22,8 +22,8 @@ import handleErrors from "./utils/handleErrors.js";
 
 mongoose
   .connect(
-    // process.env.MONGODB_URL
-    "mongodb+srv://admin:admin@cluster0.ngi535z.mongodb.net/blog?retryWrites=true&w=majority"
+    process.env.MONGODB_URL
+    //"mongodb+srv://admin:admin@cluster0.ngi535z.mongodb.net/blog?retryWrites=true&w=majority"
   )
   .then(() => console.log("MongoDB OK"))
   .catch(() => console.log("MongoDB error"));
@@ -62,15 +62,14 @@ app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
   });
 });
 
-//app.listen(process.env.PORT, (err) => {
-app.listen(4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
+  //app.listen(4444, (err) => {
   if (err) {
     return console.log(err);
   }
   console.log("server OK");
 });
 
-//vpn австрия
 /*
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDFlYTNkMWU2NzBjNDIxNGRlZTc2Y2MiLCJpYXQiOjE2Nzk3Mjk3MjQsImV4cCI6MTY4MjMyMTcyNH0.K-nTX3kPBGZOUSnUbiG7EZLG2DpoOjOsAnT3jrnrT5c
 */
