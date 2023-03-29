@@ -2,7 +2,6 @@ import express from "express";
 import mongoose from "mongoose";
 import multer from "multer";
 import cors from "cors";
-import fs from "fs";
 import {
   loginValidation,
   registerValidation,
@@ -21,10 +20,10 @@ import {
 import handleErrors from "./utils/handleErrors.js";
 
 mongoose
-  .connect(process.env.MONGODB_URI)
-  /*.connect(
+  .connect(
+    // process.env.MONGODB_URL
     "mongodb+srv://admin:admin@cluster0.ngi535z.mongodb.net/blog?retryWrites=true&w=majority"
-  )*/
+  )
   .then(() => console.log("MongoDB OK"))
   .catch(() => console.log("MongoDB error"));
 
@@ -61,8 +60,8 @@ app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
   });
 });
 
-app.listen(process.env.PORT, (err) => {
-  //app.listen(4444, (err) => {
+//app.listen(process.env.PORT, (err) => {
+app.listen(4444, (err) => {
   if (err) {
     return console.log(err);
   }
