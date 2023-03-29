@@ -22,7 +22,7 @@ import {
 import handleErrors from "./utils/handleErrors.js";
 
 mongoose
-  .connect(process.env.MONGODB_URL)
+  .connect(MONGODB_URL)
   .then(() => console.log("MongoDB OK"))
   .catch(() => console.log("MongoDB error"));
 
@@ -39,7 +39,6 @@ const storage = multer.diskStorage({
     cb(null, file.originalname);
   },
 });
-
 const upload = multer({ storage });
 app.use(express.json());
 
@@ -69,3 +68,5 @@ app.listen(process.env.PORT || 4444, (err) => {
   }
   console.log("server OK");
 });
+
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDFlYTNkMWU2NzBjNDIxNGRlZTc2Y2MiLCJpYXQiOjE2Nzk3Mjk3MjQsImV4cCI6MTY4MjMyMTcyNH0.K-nTX3kPBGZOUSnUbiG7EZLG2DpoOjOsAnT3jrnrT5c
