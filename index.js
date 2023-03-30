@@ -23,7 +23,7 @@ import handleErrors from "./utils/handleErrors.js";
 mongoose
   .connect(
     process.env.MONGODB_URL
-    //"mongodb+srv://admin:admin@cluster0.ngi535z.mongodb.net/blog?retryWrites=true&w=majority"
+    // "mongodb+srv://admin:admin@cluster0.ngi535z.mongodb.net/blog?retryWrites=true&w=majority"
   )
   .then(() => console.log("MongoDB OK"))
   .catch(() => console.log("MongoDB error"));
@@ -32,6 +32,9 @@ const app = express();
 
 const storage = multer.diskStorage({
   destination: (_, __, cb) => {
+    if (!fs.existsSync("uploads")) {
+      fs.mkdirSync("uploads");
+    }
     cb(null, "uploads");
   },
   filename: (_, file, cb) => {
