@@ -1,6 +1,4 @@
-# Бекенд проекта "Блог". Express.js + Mongo DB
-
-# Бэкенд написанный на express.js для блога, БД MongoDB
+# Бэкенд написанный на express.js + MongoDB.
 
 # [GitHub](https://github.com/den10004/Blog_backend.git)
 
