@@ -4,4 +4,4 @@
 
 # [GitHub](https://github.com/den10004/Blog_backend.git)
 
-# [Vercel](https://blog-backend-gamma.vercel.app/posts)
+# [Vercel](https://blog-backend-psi.vercel.app/posts)
