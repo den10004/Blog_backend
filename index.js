@@ -22,7 +22,9 @@ import {
 import handleErrors from "./utils/handleErrors.js";
 
 mongoose
-  .connect(process.env.MONGODB_URL)
+  .connect(
+    "mongodb+srv://admin:admin@cluster0.ngi535z.mongodb.net/blog?retryWrites=true&w=majority"
+  )
   .then(() => console.log("MongoDB OK"))
   .catch(() => console.log("MongoDB error"));
 
