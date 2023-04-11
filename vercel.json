@@ -10,7 +10,6 @@
     {
       "src": "/(.*)",
       "dest": "/"
-    },
-    { "src": "/uploads", "methods": ["POST"], "dest": "/" }
+    }
   ]
 }
