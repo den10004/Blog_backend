@@ -20,6 +20,7 @@ import {
   getTags,
 } from "./controllers/PostController.js";
 import handleErrors from "./utils/handleErrors.js";
+import commentRoute from "./routes/comments.js";
 
 mongoose
   .connect(
@@ -64,6 +65,8 @@ app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
     url: `/uploads/${req.file.originalname}`,
   });
 });
+
+app.use("/api/comments", commentRoute);
 
 app.listen(process.env.PORT || 4444, (err) => {
   if (err) {
