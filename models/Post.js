@@ -27,9 +27,6 @@ const PostSchema = new mongoose.Schema(
     },
     imgUrl: { type: String, default: "" },
     author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    comments: [
-      { type: mongoose.Schema.Types.ObjectId, ref: "Comment", required: false },
-    ],
   },
 
   {

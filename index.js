@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 import multer from "multer";
 import cors from "cors";
 import fs from "fs";
-import { createComment } from "./controllers/Comments.js";
 import {
   loginValidation,
   registerValidation,
@@ -21,7 +20,6 @@ import {
   getPostComments,
 } from "./controllers/PostController.js";
 import handleErrors from "./utils/handleErrors.js";
-import commentRoute from "./routes/comments.js";
 
 mongoose
   .connect(
@@ -49,12 +47,6 @@ app.use(express.json());
 
 app.use(cors());
 app.use("/uploads", express.static("uploads"));
-
-//app.use("/api/comments", commentRoute);
-app.use("/comments", commentRoute);
-
-app.post("/comments:id", checkAuth, createComment);
-app.get("/posts/comments/:id", getPostComments);
 
 app.get("/auth/me", checkAuth, getMe); //авторизован или нет
 app.post("/auth/login", loginValidation, handleErrors, login);
