@@ -142,3 +142,17 @@ export const getTags = async (req, res) => {
     });
   }
 };
+
+export const getPostComments = async (req, res) => {
+  try {
+    const post = await PostModel.findById(req.params.id);
+    const list = await Promise.all(
+      post.comments.map((c) => {
+        return Comment.findById(c);
+      })
+    );
+    res.json(list);
+  } catch (error) {
+    res.json({ message: "Что-то пошло не так." });
+  }
+};

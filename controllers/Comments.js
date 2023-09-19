@@ -21,3 +21,5 @@ export const createComment = async (req, res) => {
     res.json({ message: "Что-то пошло не так." });
   }
 };
+
+//http://localhost:4444/api/posts/comments/643cf5e9b312f6c08bc74dee
